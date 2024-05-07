@@ -1,0 +1,16 @@
+17:27:06  INFO 19904 --- [main] com.kb.user.UserApplication              : Starting UserApplication using Java 11.0.21 on LAPTOP-236FNSDJ with PID 19904 (D:\JavaProject\KnowledgeBase-cloud\user-service\target\classes started by 18032 in D:\JavaProject\KnowledgeBase-cloud)
+17:27:06  INFO 19904 --- [main] com.kb.user.UserApplication              : No active profile set, falling back to 1 default profile: "default"
+17:27:06  WARN 19904 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.kb.user.mapper]' package. Please check your configuration.
+17:27:07  INFO 19904 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+17:27:07  INFO 19904 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+17:27:07  INFO 19904 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+17:27:07  INFO 19904 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+17:27:07  INFO 19904 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 557 ms
+17:27:07  INFO 19904 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+17:27:07  INFO 19904 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+17:27:07  INFO 19904 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+17:27:07  INFO 19904 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+17:27:07  INFO 19904 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+17:27:07  INFO 19904 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+17:27:07  INFO 19904 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+17:27:07  INFO 19904 --- [main] com.kb.user.UserApplication              : Started UserApplication in 1.162 seconds (JVM running for 2.001)

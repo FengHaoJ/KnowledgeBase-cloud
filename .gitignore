@@ -1,0 +1,3 @@
+# Project exclude paths
+/kb-common/target/
+/user-service/target/

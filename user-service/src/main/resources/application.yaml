@@ -1,0 +1,78 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: user-service
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:mysql://${db.host}/kb-cloud?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ${db.pw}
+    type: com.alibaba.druid.pool.DruidDataSource
+logging:
+  level:
+    com.aa: info
+  pattern:
+    dateformat: HH:mm:ss
+  file:
+    path: "logs/${spring.application.name}"
+  # 设置日志回滚时间
+  logback:
+    rollingpolicy:
+      max-history: 365
+mybatis:
+  mapper-locations: classpath*:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+#mybatis-plus:
+#  type-aliases-package: com.itheima.mp.domain.po
+#  global-config:
+#    db-config:
+#      id-type: auto
+#      logic-delete-field: deleted #配置逻辑删除字段
+kb:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    user-secret-key: ilovebjtu
+    # 设置jwt过期时间
+    user-ttl: 7200000
+    # 设置前端传递过来的令牌名称，注意：在全局参数中要改为这个名字！要不然会获取不到token
+    user-token-name: token
+
+
+
+knife4j:
+  enable: true
+  openapi:
+    title: 用户管理接口文档
+    description: "用户管理接口文档"
+    email: 23126424@bjtu.edu.cn
+    concat: HaoJie Feng
+    version: v1.0.0
+    group:
+      default:
+        group-name: default
+        api-rule: package
+        api-rule-resources:
+          - com.kb.user.controller
+
+
+############## Sa-Token 配置 (文档: https://sa-token.cc) ##############
+sa-token:
+  # token 名称（同时也是 cookie 名称）
+  token-name: satoken
+  # token 有效期（单位：秒） 默认30天，-1 代表永久有效
+  timeout: 2592000
+  # token 最低活跃频率（单位：秒），如果 token 超过此时间没有访问系统就会被冻结，默认-1 代表不限制，永不冻结
+  active-timeout: -1
+  # 是否允许同一账号多地同时登录 （为 true 时允许一起登录, 为 false 时新登录挤掉旧登录）
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个 token （为 true 时所有登录共用一个 token, 为 false 时每次登录新建一个 token）
+  is-share: true
+  # token 风格（默认可取值：uuid、simple-uuid、random-32、random-64、random-128、tik）
+  token-style: uuid
+  # 是否输出操作日志
+  is-log: true
