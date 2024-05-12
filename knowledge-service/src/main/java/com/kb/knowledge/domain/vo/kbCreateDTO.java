@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @ApiModel(description = "新建知识库返回结果")
 public class kbCreateDTO {
 
-    @ApiModelProperty("知识库名")
+//    @ApiModelProperty("知识库名")
 }

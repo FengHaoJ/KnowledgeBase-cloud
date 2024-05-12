@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class KnowledgeBaseController {
 
 
-    @PostMapping("/{kbName}")
-    //前端发送地址
-    @ApiOperation("新建知识库")
-    public Result<> createKB(@PathVariable("kbName") String kbName){
-
-    }
+//    @PostMapping("/{kbName}")
+//    //前端发送地址
+//    @ApiOperation("新建知识库")
+//    public Result<> createKB(@PathVariable("kbName") String kbName){
+//
+//    }
 }
