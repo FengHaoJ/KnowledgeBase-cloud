@@ -1,30 +1,73 @@
-19:59:37  INFO 25228 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-19:59:37  INFO 25228 --- [main] com.kb.user.UserApplication              : Starting UserApplication using Java 11.0.21 on LAPTOP-236FNSDJ with PID 25228 (D:\JavaProject\KnowledgeBase-cloud\user-service\target\classes started by 18032 in D:\JavaProject\KnowledgeBase-cloud)
-19:59:37  INFO 25228 --- [main] com.kb.user.UserApplication              : The following 1 profile is active: "local"
-19:59:38  INFO 25228 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e7545d05-c18b-3d73-98ac-3e379be08c93
-19:59:38  INFO 25228 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-19:59:38  INFO 25228 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-19:59:38  INFO 25228 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-19:59:38  INFO 25228 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-19:59:38  INFO 25228 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 788 ms
-19:59:38  INFO 25228 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-19:59:38  INFO 25228 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-19:59:38  INFO 25228 --- [main] com.kb.user.config.WebMvcConfiguration   : 开始注册自定义拦截器...
-19:59:38  INFO 25228 --- [main] com.kb.user.config.WebMvcConfiguration   : 扩展消息转换器
-19:59:38  WARN 25228 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-19:59:38  INFO 25228 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-19:59:38  WARN 25228 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-19:59:38  INFO 25228 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-19:59:39  INFO 25228 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-19:59:39  INFO 25228 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-19:59:39  INFO 25228 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-19:59:41  INFO 25228 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-19:59:41  INFO 25228 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP user-service 10.53.141.62:8081 register finished
-19:59:42  INFO 25228 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-19:59:42  INFO 25228 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
-19:59:42  INFO 25228 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-19:59:42  INFO 25228 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-19:59:42  INFO 25228 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginUsingPUT_1
-19:59:42  INFO 25228 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerUsingPOST_1
-19:59:42  INFO 25228 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginUsingPOST_1
-19:59:42  INFO 25228 --- [main] com.kb.user.UserApplication              : Started UserApplication in 5.639 seconds (JVM running for 6.536)
+20:35:44  INFO 31272 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:35:44  INFO 31272 --- [main] com.kb.user.UserApplication              : Starting UserApplication using Java 11.0.21 on LAPTOP-236FNSDJ with PID 31272 (D:\JavaProject\KnowledgeBase-cloud\user-service\target\classes started by 18032 in D:\JavaProject\KnowledgeBase-cloud)
+20:35:44  INFO 31272 --- [main] com.kb.user.UserApplication              : The following 1 profile is active: "local"
+20:35:45  INFO 31272 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e7545d05-c18b-3d73-98ac-3e379be08c93
+20:35:45  INFO 31272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+20:35:45  INFO 31272 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+20:35:45  INFO 31272 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+20:35:45  INFO 31272 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+20:35:45  INFO 31272 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 951 ms
+20:35:45  INFO 31272 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+20:35:45  INFO 31272 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+20:35:45  INFO 31272 --- [main] com.kb.user.config.WebMvcConfiguration   : 开始注册自定义拦截器...
+20:35:46  INFO 31272 --- [main] com.kb.user.config.WebMvcConfiguration   : 扩展消息转换器
+20:35:46  WARN 31272 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+20:35:46  INFO 31272 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+20:35:46  WARN 31272 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+20:35:46  INFO 31272 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+20:35:46  INFO 31272 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+20:35:47  INFO 31272 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:35:47  INFO 31272 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:35:48  INFO 31272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+20:35:48  INFO 31272 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP user-service 10.53.141.62:8081 register finished
+20:35:49  INFO 31272 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+20:35:49  INFO 31272 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
+20:35:49  INFO 31272 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+20:35:49  INFO 31272 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+20:35:49  INFO 31272 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginUsingPUT_1
+20:35:49  INFO 31272 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerUsingPOST_1
+20:35:49  INFO 31272 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginUsingPOST_1
+20:35:49  INFO 31272 --- [main] com.kb.user.UserApplication              : Started UserApplication in 5.569 seconds (JVM running for 6.473)
+20:35:51  INFO 31272 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:35:51  INFO 31272 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+20:35:51  INFO 31272 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+20:35:51  WARN 31272 --- [http-nio-8081-exec-1] o.s.web.servlet.PageNotFound             : No mapping for GET /
+20:35:51  WARN 31272 --- [http-nio-8081-exec-3] o.s.web.servlet.PageNotFound             : No mapping for GET /favicon.ico
+20:36:10  INFO 31272 --- [http-nio-8081-exec-8] com.kb.user.controller.UserController    : 用户登录：UserLoginDTO(Username=1, Password=123456)
+20:36:11  INFO 31272 --- [http-nio-8081-exec-8] com.kb.user.controller.UserController    : 当前登录：User(id=1, username=1, password=123456, phone=11111111111, createTime=2024-04-29T17:00:36, updateTime=2024-04-29T17:00:36, status=1, permission=1)
+22:10:55  INFO 2792 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+22:10:55  INFO 2792 --- [main] com.kb.user.UserApplication              : Starting UserApplication using Java 11.0.21 on LAPTOP-236FNSDJ with PID 2792 (D:\JavaProject\KnowledgeBase-cloud\user-service\target\classes started by 18032 in D:\JavaProject\KnowledgeBase-cloud)
+22:10:55  INFO 2792 --- [main] com.kb.user.UserApplication              : The following 1 profile is active: "local"
+22:10:56  INFO 2792 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e7545d05-c18b-3d73-98ac-3e379be08c93
+22:10:56  INFO 2792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+22:10:56  INFO 2792 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+22:10:56  INFO 2792 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+22:10:56  INFO 2792 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+22:10:56  INFO 2792 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 737 ms
+22:10:56  INFO 2792 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+22:10:56  INFO 2792 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+22:10:56  INFO 2792 --- [main] com.kb.user.config.WebMvcConfiguration   : 开始注册自定义拦截器...
+22:10:56  INFO 2792 --- [main] com.kb.user.config.WebMvcConfiguration   : 扩展消息转换器
+22:10:56  WARN 2792 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+22:10:56  INFO 2792 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+22:10:56  WARN 2792 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+22:10:56  INFO 2792 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+22:10:57  INFO 2792 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+22:10:58  INFO 2792 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+22:10:58  INFO 2792 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+22:10:59  INFO 2792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+22:10:59  INFO 2792 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP user-service 10.53.141.62:8081 register finished
+22:11:00  INFO 2792 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+22:11:00  INFO 2792 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
+22:11:00  INFO 2792 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+22:11:00  INFO 2792 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+22:11:00  INFO 2792 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginUsingPUT_1
+22:11:00  INFO 2792 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerUsingPOST_1
+22:11:00  INFO 2792 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginUsingPOST_1
+22:11:00  INFO 2792 --- [main] com.kb.user.UserApplication              : Started UserApplication in 5.031 seconds (JVM running for 5.92)
+22:11:05  INFO 2792 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:11:05  INFO 2792 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+22:11:05  INFO 2792 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+22:11:05  WARN 2792 --- [http-nio-8081-exec-1] o.s.web.servlet.PageNotFound             : No mapping for GET /
+22:11:14  INFO 2792 --- [http-nio-8081-exec-6] com.kb.user.controller.UserController    : 用户登录：UserLoginDTO(Username=1, Password=123456)
+22:11:14  INFO 2792 --- [http-nio-8081-exec-6] com.kb.user.controller.UserController    : 当前登录：User(id=1, username=1, password=123456, phone=11111111111, createTime=2024-04-29T17:00:36, updateTime=2024-04-29T17:00:36, status=1, permission=1)
