@@ -9,4 +9,6 @@ public class MessageConstant {
     public static final String ACCOUNT_NOT_FOUND = "账号不存在";
 
     public static final String ACCOUNT_EXIST = "账号已存在";
+
+    public static final String RESOURCE_NOTEXIST = "资源不存在";
 }

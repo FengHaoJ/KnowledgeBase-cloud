@@ -1,5 +1,6 @@
 package com.kb.knowledge.controller;
 
+import com.kb.knowledge.domain.vo.KContentVO;
 import com.kb.knowledge.domain.vo.KsAllVO;
 import com.kb.knowledge.service.KnowledgeService;
 import common.Result;
@@ -8,9 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,4 +29,23 @@ public class KnowledgeController {
         List<KsAllVO> allKs = knowledgeService.getAllKs();
         return Result.success(allKs);
     }
+
+    @GetMapping("/{kbId}")
+    @ApiOperation("根据知识库id返回知识")
+    public Result<KsAllVO> getKnowledge(@PathVariable Long kbId){
+        log.info("返回某个知识库对应的知识");
+        KsAllVO ksAllVO = knowledgeService.getKsById(kbId);
+        return Result.success(ksAllVO);
+    }
+
+    //知识详情页面
+    @GetMapping("/details")
+    @ApiOperation("返回知识详情")
+    public Result<KContentVO> getKnowledgeContent(@RequestParam("kbId") Long kbId,
+                                                  @RequestParam("kId") Long kId){
+        log.info("返回指定的知识库和对应的知识");
+        KContentVO kContentVO = knowledgeService.getContent(kbId, kId);
+        return Result.success(kContentVO);
+    }
+
 }

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @ApiModel(description = "知识的返回结果")
-public class KnowledgeVO {
+public class KIdAndNameVO {
     @ApiModelProperty
     private Long id;
     @ApiModelProperty

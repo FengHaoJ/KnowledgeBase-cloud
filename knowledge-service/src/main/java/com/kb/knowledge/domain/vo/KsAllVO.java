@@ -21,5 +21,5 @@ public class KsAllVO {
     @ApiModelProperty("知识库名称")
     private String kbname;
     @ApiModelProperty("所属子知识")
-    private List<KnowledgeVO> knowledge;
+    private List<KIdAndNameVO> knowledge;
 }
