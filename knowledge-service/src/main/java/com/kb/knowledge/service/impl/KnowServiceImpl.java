@@ -1,6 +1,7 @@
 package com.kb.knowledge.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.kb.knowledge.domain.dto.KnowledgeAddDTO;
 import com.kb.knowledge.domain.po.Knowledge;
 import com.kb.knowledge.domain.po.KnowledgeBase;
 import com.kb.knowledge.domain.vo.KContentVO;
@@ -16,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -125,5 +127,24 @@ public class KnowServiceImpl implements KnowledgeService {
             throw new ResourceNotExistException(MessageConstant.RESOURCE_NOTEXIST);
         }
 
+    }
+
+    @Override
+    public void saveKnowledge(KnowledgeAddDTO knowledgeAddDTO) {
+        //获取当前登录用户
+        Long currentId = BaseContext.getCurrentId();
+        if(currentId==null){
+            throw new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
+        }
+        log.info("currentId:{}",currentId);
+        //防御性编程，判断当前的知识库id属不属于（）有没有权限访问【考虑到权限系统还没有加入暂留】
+
+        Knowledge knowledge = new Knowledge();
+        BeanUtil.copyProperties(knowledgeAddDTO,knowledge);
+
+        knowledge.setId(currentId);
+        knowledge.setCreateTime(LocalDateTime.now());
+        knowledge.setUpdateTime(LocalDateTime.now());
+        knowledgeMapper.insertKnowledge(knowledge);
     }
 }

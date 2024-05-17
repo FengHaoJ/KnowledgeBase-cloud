@@ -1,5 +1,6 @@
 package com.kb.knowledge.service;
 
+import com.kb.knowledge.domain.dto.KnowledgeAddDTO;
 import com.kb.knowledge.domain.vo.KContentVO;
 import com.kb.knowledge.domain.vo.KsAllVO;
 
@@ -12,4 +13,10 @@ public interface KnowledgeService {
     KsAllVO getKsById(Long kbId);
 
     KContentVO getContent(Long kbId,Long kId);
+
+    /**
+     * 新增知识
+     * @param knowledgeAddDTO
+     */
+    void saveKnowledge(KnowledgeAddDTO knowledgeAddDTO);
 }

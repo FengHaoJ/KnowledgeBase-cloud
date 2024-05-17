@@ -30,4 +30,6 @@ public interface KnowledgeMapper {
     @Select("select * from ks where kbase_id=#{kbId} and id=#{kId}")
     Knowledge gerKnowledgeDetailById(Long kbId,Long kId);
 
+    void insertKnowledge(Knowledge knowledge);
+
 }

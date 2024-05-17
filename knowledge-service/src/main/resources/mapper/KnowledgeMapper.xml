@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kb.knowledge.mapper.KnowledgeMapper">
+    <insert id="insertKnowledge" useGeneratedKeys="true" keyProperty="id">
+        insert into ks (name, data_type, data_content, kbase_id, user_id, create_time, update_time, permission)
+        VALUES
+        (#{name},#{dataType},#{dataContent},#{kbaseId},#{userId},#{createTime},#{updateTime},#{permission})
+    </insert>
+
+</mapper>

@@ -1,5 +1,6 @@
 package com.kb.knowledge.controller;
 
+import com.kb.knowledge.domain.dto.KnowledgeAddDTO;
 import com.kb.knowledge.domain.vo.KContentVO;
 import com.kb.knowledge.domain.vo.KsAllVO;
 import com.kb.knowledge.service.KnowledgeService;
@@ -48,4 +49,16 @@ public class KnowledgeController {
         return Result.success(kContentVO);
     }
 
+
+    //新增知识页面
+    @PostMapping()
+    @ApiOperation("新增知识")
+    public Result addKnowledge(@RequestBody KnowledgeAddDTO knowledgeAddDTO){
+        log.info("新增知识");
+        if(knowledgeAddDTO.getName().isEmpty()){
+            return Result.error("知识库名称不能为空！");
+        }
+        knowledgeService.saveKnowledge(knowledgeAddDTO);
+        return Result.success("新增知识成功！");
+    }
 }
