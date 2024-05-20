@@ -2,6 +2,7 @@ package com.kb.knowledge.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.kb.knowledge.domain.dto.KnowledgeAddDTO;
+import com.kb.knowledge.domain.dto.KnowledgeUpdateDTO;
 import com.kb.knowledge.domain.po.Knowledge;
 import com.kb.knowledge.domain.po.KnowledgeBase;
 import com.kb.knowledge.domain.vo.KContentVO;
@@ -28,6 +29,11 @@ public class KnowServiceImpl implements KnowledgeService {
     @Autowired
     private KnowledgeMapper knowledgeMapper;
 
+
+    /**
+     * 查询所有知识
+     * @return
+     */
     @Override
     public List<KsAllVO> getAllKs() {
         Long currentId = BaseContext.getCurrentId();
@@ -37,8 +43,8 @@ public class KnowServiceImpl implements KnowledgeService {
         log.info("currentId:{}",currentId);
         //分两步，先查询当前id创建/或者有查看权限的所有知识库
 
-        //1.查询当前id创建的/或者有查看权限的所有知识库
-        List<KnowledgeBase> allKbs = knowledgeMapper.getAllKbs(currentId);
+        //1.查询当前id创建的/或者有查看权限的所有知识库【更新为查看所有知识】
+        List<KnowledgeBase> allKbs = knowledgeMapper.getAllKbs();
 
         //[KnowledgeBase(id=1, name=排序算法, user_id=null, createTime=2024-05-12T21:09:01, updateTime=2024-05-12T21:09:03, permission=0),
         // KnowledgeBase(id=2, name=查找算法, user_id=null, createTime=2024-05-15T22:21:15, updateTime=2024-05-15T22:21:18, permission=0)]
@@ -74,6 +80,11 @@ public class KnowServiceImpl implements KnowledgeService {
         return ksAllVOList;
     }
 
+    /**
+     * 根据知识库查询知识
+     * @param kbId
+     * @return
+     */
     @Override
     public KsAllVO getKsById(Long kbId) {
         Long currentId = BaseContext.getCurrentId();
@@ -98,6 +109,12 @@ public class KnowServiceImpl implements KnowledgeService {
 
     }
 
+    /**
+     * 获取知识详情
+     * @param kbId
+     * @param kId
+     * @return
+     */
     @Override
     public KContentVO getContent(Long kbId, Long kId) {
         //获取当前登录用户
@@ -107,25 +124,32 @@ public class KnowServiceImpl implements KnowledgeService {
         }
         log.info("currentId:{}",currentId);
 
-        //1.判断当前用户是否有访问（拥有）这个知识库
+        //1.判断当前用户是否有访问（拥有）这个知识库【取消这个逻辑】
         //实现一个mapper，返回当前用户知识库列表
-        List<Long> allKbaseId= knowledgeMapper.getAllKbaseIdByUserId(currentId);
-        if(allKbaseId.contains(kbId)){
-            //2.判断当前用户是否有访问（拥有）这个知识
-            List<Long> allKnowledgeByKbaseId = knowledgeMapper.getAllKnowledgeByKbaseId(kbId);
-            if(allKnowledgeByKbaseId.contains(kId)){
-                //3.都成立则返回这个知识
-                Knowledge knowledge = knowledgeMapper.gerKnowledgeDetailById(kbId, kId);
-                //由于目前不知道返回什么，暂时先返回所有信息
-                KContentVO kContentVO = new KContentVO();
-                BeanUtil.copyProperties(knowledge,kContentVO);
-                return kContentVO;
-            }else {
-                throw new ResourceNotExistException(MessageConstant.RESOURCE_NOTEXIST);
-            }
-        }else{
-            throw new ResourceNotExistException(MessageConstant.RESOURCE_NOTEXIST);
-        }
+
+//        List<Long> allKbaseId= knowledgeMapper.getAllKbaseIdByUserId(currentId);
+//        if(allKbaseId.contains(kbId)){
+//            //2.判断当前用户是否有访问（拥有）这个知识
+//            List<Long> allKnowledgeByKbaseId = knowledgeMapper.getAllKnowledgeByKbaseId(kbId);
+//            if(allKnowledgeByKbaseId.contains(kId)){
+//                //3.都成立则返回这个知识
+//                Knowledge knowledge = knowledgeMapper.gerKnowledgeDetailById(kbId, kId);
+//                //由于目前不知道返回什么，暂时先返回所有信息
+//                KContentVO kContentVO = new KContentVO();
+//                BeanUtil.copyProperties(knowledge,kContentVO);
+//                return kContentVO;
+//            }else {
+//                throw new ResourceNotExistException(MessageConstant.RESOURCE_NOTEXIST);
+//            }
+//        }else{
+//            throw new ResourceNotExistException(MessageConstant.RESOURCE_NOTEXIST);
+//        }
+
+        Knowledge knowledge = knowledgeMapper.gerKnowledgeDetailById(kbId, kId);
+        //由于目前不知道返回什么，暂时先返回所有信息
+        KContentVO kContentVO = new KContentVO();
+        BeanUtil.copyProperties(knowledge,kContentVO);
+        return kContentVO;
 
     }
 
@@ -147,4 +171,24 @@ public class KnowServiceImpl implements KnowledgeService {
         knowledge.setUpdateTime(LocalDateTime.now());
         knowledgeMapper.insertKnowledge(knowledge);
     }
+
+    @Override
+    public void updateKnowledge(Long kbId, Long kId, KnowledgeUpdateDTO knowledgeUpdateDTO) {
+        Long currentId = BaseContext.getCurrentId();
+        if(currentId==null){
+            throw new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
+        }
+        log.info("currentId:{}",currentId);
+
+        Knowledge knowledge = new Knowledge();
+        BeanUtil.copyProperties(knowledgeUpdateDTO,knowledge);
+
+        knowledge.setUpdateTime(LocalDateTime.now());
+        knowledge.setId(kId);
+        knowledge.setKbaseId(kbId);
+        log.info("修改的knowledge{}",knowledge);
+        knowledgeMapper.updateKnowledge(knowledge);
+    }
+
+
 }

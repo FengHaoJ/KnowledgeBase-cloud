@@ -1,0 +1,25 @@
+version: '3'
+services:
+  user-service:
+    container_name: user-service
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    networks:
+      - kb
+
+  knowledge-service:
+    container_name: knowledge-service
+    build:
+      context: ./knowledge-service
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    networks:
+      - kb
+
+# 网络，不定义的话就是默认网络
+networks:
+  kb:

@@ -1,6 +1,7 @@
 package com.kb.knowledge.controller;
 
 import com.kb.knowledge.domain.dto.KnowledgeAddDTO;
+import com.kb.knowledge.domain.dto.KnowledgeUpdateDTO;
 import com.kb.knowledge.domain.vo.KContentVO;
 import com.kb.knowledge.domain.vo.KsAllVO;
 import com.kb.knowledge.service.KnowledgeService;
@@ -40,10 +41,11 @@ public class KnowledgeController {
     }
 
     //知识详情页面
-    @GetMapping("/details")
+    @GetMapping("/{kbId}/{kId}")
+    //考虑统一性是否使用路径参数比较合适
     @ApiOperation("返回知识详情")
-    public Result<KContentVO> getKnowledgeContent(@RequestParam("kbId") Long kbId,
-                                                  @RequestParam("kId") Long kId){
+    public Result<KContentVO> getKnowledgeContent(@PathVariable Long kbId,
+                                                  @PathVariable Long kId){
         log.info("返回指定的知识库和对应的知识");
         KContentVO kContentVO = knowledgeService.getContent(kbId, kId);
         return Result.success(kContentVO);
@@ -56,9 +58,26 @@ public class KnowledgeController {
     public Result addKnowledge(@RequestBody KnowledgeAddDTO knowledgeAddDTO){
         log.info("新增知识");
         if(knowledgeAddDTO.getName().isEmpty()){
-            return Result.error("知识库名称不能为空！");
+            return Result.error("知识名称不能为空！");
+        }
+        if(knowledgeAddDTO.getKbaseId()==0){
+            return Result.error("目标知识库为空！");
         }
         knowledgeService.saveKnowledge(knowledgeAddDTO);
         return Result.success("新增知识成功！");
+    }
+
+    //修改知识页面
+    @PutMapping("/{kbId}/{kId}")
+    @ApiOperation("修改知识")
+    public Result updateKnowledge(@PathVariable Long kbId,
+                                  @PathVariable Long kId,
+                                  @RequestBody KnowledgeUpdateDTO knowledgeUpdateDTO){
+        log.info("修改知识");
+        if(knowledgeUpdateDTO.getName().isEmpty()){
+            return Result.error("知识名称不能为空！");
+        }
+        knowledgeService.updateKnowledge(kbId,kId,knowledgeUpdateDTO);
+        return Result.success("更新知识成功！");
     }
 }

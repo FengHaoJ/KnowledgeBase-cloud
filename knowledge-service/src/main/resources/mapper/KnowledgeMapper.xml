@@ -6,5 +6,26 @@
         VALUES
         (#{name},#{dataType},#{dataContent},#{kbaseId},#{userId},#{createTime},#{updateTime},#{permission})
     </insert>
+    <update id="updateKnowledge" parameterType="com.kb.knowledge.domain.po.Knowledge" keyProperty="id">
+        update ks
+        <set>
+            <if test="name !=null">
+                name = #{name},
+            </if>
+            <if test="dataType!=null">
+                data_type = #{dataType},
+            </if>
+            <if test="dataContent!=null">
+                data_content = #{dataContent},
+            </if>
+            <if test="permission!=null">
+                permission = #{permission},
+            </if>
+            <if test="updateTime!=null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id} and kbase_id = #{kbaseId}
+    </update>
 
 </mapper>
