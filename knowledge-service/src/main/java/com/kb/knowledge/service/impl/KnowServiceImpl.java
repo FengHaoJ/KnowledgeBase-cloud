@@ -188,6 +188,19 @@ public class KnowServiceImpl implements KnowledgeService {
         knowledge.setKbaseId(kbId);
         log.info("修改的knowledge{}",knowledge);
         knowledgeMapper.updateKnowledge(knowledge);
+
+        //修改知识库更新时间
+        knowledgeMapper.updateKBUpdateTime(kbId,LocalDateTime.now());
+    }
+
+    @Override
+    public void deleteKnowledge(Long kbId, Long kId) {
+        Long currentId = BaseContext.getCurrentId();
+        if(currentId==null){
+            throw new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
+        }
+        log.info("currentId:{}",currentId);
+        knowledgeMapper.deleteKnowledge(kbId, kId);
     }
 
 

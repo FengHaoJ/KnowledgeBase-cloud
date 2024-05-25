@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/KnowledgeBase-cloud.iml" filepath="$PROJECT_DIR$/KnowledgeBase-cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/kb-common/kb-common.iml" filepath="$PROJECT_DIR$/kb-common/kb-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/knowledge-service/knowledge-service.iml" filepath="$PROJECT_DIR$/knowledge-service/knowledge-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/knowledgeB-service/knowledgeB-service.iml" filepath="$PROJECT_DIR$/knowledgeB-service/knowledgeB-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-service/user-service.iml" filepath="$PROJECT_DIR$/user-service/user-service.iml" />
     </modules>
   </component>

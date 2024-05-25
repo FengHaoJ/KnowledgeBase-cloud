@@ -1,9 +1,9 @@
-package com.kb.knowledge.config;
+package com.kb.knowledgeb.config;
 
 
-import com.kb.knowledge.intercepter.JwtTokenUserInterceptor;
 
-import com.kb.knowledge.json.JacksonObjectMapper;
+import com.kb.knowledgeb.intercepter.JwtTokenUserInterceptor;
+import com.kb.knowledgeb.json.JacksonObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

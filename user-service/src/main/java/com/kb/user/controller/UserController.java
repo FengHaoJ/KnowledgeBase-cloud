@@ -23,6 +23,7 @@ import java.util.Map;
 @RequestMapping("/user/users")
 @Api(tags = "用户接口")
 @Slf4j
+@CrossOrigin
 public class UserController {
 
     @Autowired

@@ -7,6 +7,7 @@
         <module>user-service</module>
         <module>kb-common</module>
         <module>knowledge-service</module>
+        <module>knowledgeB-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -19,6 +19,7 @@ import java.util.List;
 @RequestMapping("/user/ks")
 @Api(tags = "用户接口")
 @Slf4j
+@CrossOrigin
 public class KnowledgeController {
     @Autowired
     private  KnowledgeService knowledgeService;
@@ -79,5 +80,15 @@ public class KnowledgeController {
         }
         knowledgeService.updateKnowledge(kbId,kId,knowledgeUpdateDTO);
         return Result.success("更新知识成功！");
+    }
+
+    //删除知识页面
+    @DeleteMapping("/{kbId}/{kId}")
+    @ApiOperation("删除知识")
+    public Result deleteKnowledge(@PathVariable Long kbId,
+                                  @PathVariable Long kId){
+        log.info("删除知识");
+        knowledgeService.deleteKnowledge(kbId, kId);
+        return Result.success("删除知识成功");
     }
 }

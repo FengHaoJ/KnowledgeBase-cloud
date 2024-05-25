@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/kb-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/knowledge-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/knowledge-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/knowledgeB-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user-service/src/main/resources" charset="UTF-8" />
   </component>

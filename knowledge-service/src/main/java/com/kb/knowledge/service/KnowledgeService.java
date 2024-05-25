@@ -22,4 +22,6 @@ public interface KnowledgeService {
     void saveKnowledge(KnowledgeAddDTO knowledgeAddDTO);
 
     void updateKnowledge(Long kbId,Long kId,KnowledgeUpdateDTO knowledgeUpdateDTO);
+
+    void deleteKnowledge(Long kbId,Long kId);
 }

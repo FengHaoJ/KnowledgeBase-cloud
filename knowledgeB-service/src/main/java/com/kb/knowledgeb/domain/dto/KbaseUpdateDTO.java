@@ -1,4 +1,4 @@
-package com.kb.knowledge.domain.vo;
+package com.kb.knowledgeb.domain.dto;
 
 
 import io.swagger.annotations.ApiModel;
@@ -12,10 +12,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(description = "知识的返回结果")
-public class KIdAndNameVO {
-    @ApiModelProperty("知识id")
+@ApiModel(description = "修改知识库")
+public class KbaseUpdateDTO {
+
+    @ApiModelProperty("知识库id")
     private Long id;
-    @ApiModelProperty("知识名称")
+    @ApiModelProperty("知识库名称")
     private String name;
+    @ApiModelProperty("知识库权限")
+    private Integer permission;
+
 }
