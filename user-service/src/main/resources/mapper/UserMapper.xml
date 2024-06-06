@@ -11,6 +11,10 @@
     <update id="updateUser">
         update users
         <set>
+            <if test="username != null">
+                username = #{username},
+            </if>
+
             <if test="password != null">
                 password = #{password},
             </if>

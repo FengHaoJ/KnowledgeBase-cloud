@@ -3,6 +3,7 @@ package com.kb.user.mapper;
 
 
 import com.kb.user.domain.po.User;
+import com.kb.user.domain.vo.UserSettingVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -19,4 +20,7 @@ public interface UserMapper {
 
 
     void updateUser(User user);
+
+    @Select("select * from users where id=#{id}")
+    UserSettingVO getUserInfoById(Long id);
 }

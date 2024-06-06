@@ -2,15 +2,19 @@ package com.kb.user.service.impl;
 
 
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import com.kb.user.domain.dto.UserLoginDTO;
 import com.kb.user.domain.dto.UserRegisterDTO;
 import com.kb.user.domain.po.User;
+import com.kb.user.domain.vo.UserSettingVO;
 import com.kb.user.mapper.UserMapper;
 import com.kb.user.service.UserService;
 import constant.MessageConstant;
+import context.BaseContext;
 import exception.AccountExistException;
 import exception.AccountNotFoundException;
 import exception.InfoNotComplatedException;
+import exception.UserNotLoginException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -83,8 +87,14 @@ public class UserServiceImpl implements UserService {
         String password = userRegisterDTO.getPassword();
         String phone = userRegisterDTO.getPhone();
         log.info(username);
-        if(username.isEmpty()||password.isEmpty()||phone.isEmpty()){
-            throw new InfoNotComplatedException("用户信息不完整");
+//        if(username.isEmpty()||password.isEmpty()||phone.isEmpty()){
+//            throw new InfoNotComplatedException("用户信息不完整");
+//        }
+        //判断修改后的用户名是否重复
+        User byUsername = userMapper.getByUsername(username);
+        if (byUsername != null) {
+            // 已经存在该用户
+            throw new AccountExistException(MessageConstant.ACCOUNT_EXIST);
         }
 
         //执行插入语句
@@ -98,5 +108,16 @@ public class UserServiceImpl implements UserService {
         log.info(user.toString());
         userMapper.updateUser(user);
         return user;
+    }
+
+    @Override
+    public UserSettingVO userInfo() {
+        Long currentId = BaseContext.getCurrentId();
+        if(currentId==0){
+            throw  new UserNotLoginException(MessageConstant.USER_NOT_LOGIN);
+        }
+        log.info("当前登录id为：{}",currentId);
+        UserSettingVO userInfoById = userMapper.getUserInfoById(currentId);
+        return userInfoById;
     }
 }

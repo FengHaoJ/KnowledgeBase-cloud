@@ -3,6 +3,7 @@ package com.kb.user.controller;
 import com.kb.user.domain.dto.UserLoginDTO;
 import com.kb.user.domain.dto.UserRegisterDTO;
 import com.kb.user.domain.po.User;
+import com.kb.user.domain.vo.UserSettingVO;
 import com.kb.user.domain.vo.UserVO;
 import com.kb.user.service.UserService;
 import common.Result;
@@ -74,10 +75,18 @@ public class UserController {
 //        return "123";
 //    }
 
+    @GetMapping("/settings")
+    @ApiOperation("返回用户信息")
+    public Result<UserSettingVO> loginSitting(){
+        log.info("用户登录个人信息页面，返回个人信息");
+        UserSettingVO userSettingVO = userService.userInfo();
+        return Result.success(userSettingVO);
+    }
+
 
 
     //也可以考虑使用路径提交/users/{id}
-    @PutMapping()
+    @PutMapping("/settings")
     @ApiOperation("用户信息修改")
     public Result<User> login(@RequestBody UserRegisterDTO userRegisterDTO) throws AccountNotFoundException {
         log.info("用户信息修改：{}",userRegisterDTO);

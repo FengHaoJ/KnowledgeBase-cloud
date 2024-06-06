@@ -2,7 +2,9 @@ package com.kb.user.intercepter;
 
 
 
+import constant.MessageConstant;
 import context.BaseContext;
+import exception.UserNotLoginException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
@@ -52,6 +54,9 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
         // 校验令牌
         try {
             log.info("JWT校验: {}", token);
+            if(token.isEmpty()){
+                throw new UserNotLoginException(MessageConstant.USER_NOT_LOGIN);
+            }
             Claims claims = JwtUtil.parseJWT(jwtProperties.getUserSecretKey(), token);
 
             // 检查令牌是否已过期
