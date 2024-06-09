@@ -1,6 +1,7 @@
 package com.kb.knowledge.service;
 
 import com.kb.knowledge.domain.dto.KnowledgeAddDTO;
+import com.kb.knowledge.domain.dto.KnowledgePreviewUpdateDTO;
 import com.kb.knowledge.domain.dto.KnowledgeUpdateDTO;
 import com.kb.knowledge.domain.po.KnowledgePreview;
 import com.kb.knowledge.domain.vo.KContentVO;
@@ -28,4 +29,7 @@ public interface KnowledgeService {
 
 
     KnowledgePreview getKnowledgePreview(Long kbId, Long kId);
+
+
+    void updateKnowledgePreview(KnowledgePreviewUpdateDTO knowledgePreviewUpdateDTO);
 }

@@ -115,9 +115,20 @@ public class KnowledgeController {
             @PathVariable Long kId,
             @RequestBody KnowledgePreviewUpdateDTO knowledgePreviewUpdateDTO
             ){
+        // 比较 kbId 和 DTO 中的 kbId
+        if (kbId == null || !kbId.equals(knowledgePreviewUpdateDTO.getKbaseId())) {
+            // DTO 中的 kbId 值与路径参数中的 kbId 值不相同
+            return Result.error("DTO中的kbId值与路径参数不匹配");
+        }
+
+        // 比较 kId 和 DTO 中的 kId
+        if (kId == null || !kId.equals(knowledgePreviewUpdateDTO.getId())) {
+            // DTO 中的 kId 值与路径参数中的 kId 值不相同
+            return Result.error("DTO中的kId值与路径参数不匹配");
+        }
 
 
-
+        knowledgeService.updateKnowledgePreview(knowledgePreviewUpdateDTO);
 
         return Result.success("更新成功");
     }

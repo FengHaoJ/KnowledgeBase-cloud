@@ -4,10 +4,7 @@ package com.kb.knowledge.mapper;
 import com.kb.knowledge.domain.po.Knowledge;
 import com.kb.knowledge.domain.po.KnowledgeBase;
 import com.kb.knowledge.domain.po.KnowledgePreview;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -34,6 +31,12 @@ public interface KnowledgeMapper {
     @Select("select * from ks where kbase_id=#{kbId} and id=#{kId}")
     Knowledge gerKnowledgeDetailById(Long kbId,Long kId);
 
+    @Select("select user_id from ks where id = #{id}")
+    Long getUserIdBykId(Long id);
+
+    @Select("select username from users where id=#{userId}")
+    String getUsernameByUserId(Long userId);
+
     void insertKnowledge(Knowledge knowledge);
 
     void updateKnowledge(Knowledge knowledge);
@@ -46,4 +49,9 @@ public interface KnowledgeMapper {
 
     @Select("select * from k_preview where id = #{kid}")
     KnowledgePreview getKnowledgePreview(Long kid);
+
+    void updateKnowledgePreview(KnowledgePreview knowledgePreview);
+
+    @Insert("insert into k_preview (id,name,authors,kbase_id) values (#{id},#{name},#{authors},#{kbaseId})")
+    void createKnowledgePreview(Long id,String name,String authors,Long kbaseId);
 }

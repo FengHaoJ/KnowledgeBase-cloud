@@ -27,5 +27,18 @@
         </set>
         where id = #{id} and kbase_id = #{kbaseId}
     </update>
+    <update id="updateKnowledgePreview" parameterType="com.kb.knowledge.domain.po.KnowledgePreview" keyProperty="id">
+        update k_preview
+        <set>
+            <if test="name != null">`name` = #{name},</if>
+            <if test="publisher != null">`publisher` = #{publisher},</if>
+            <if test="picture != null">`picture` = #{picture},</if>
+            <if test="summarization != null">`summarization` = #{summarization},</if>
+            <if test="keywords != null">`keywords` = #{keywords},</if>
+            <if test="url != null">`url` = #{url},</if>
+            <if test="finishTime != null">`finish_time` = #{finishTime},</if>
+        </set>
+        WHERE `id` = #{id}
+    </update>
 
 </mapper>

@@ -2,6 +2,7 @@ package com.kb.knowledge.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.kb.knowledge.domain.dto.KnowledgeAddDTO;
+import com.kb.knowledge.domain.dto.KnowledgePreviewUpdateDTO;
 import com.kb.knowledge.domain.dto.KnowledgeUpdateDTO;
 import com.kb.knowledge.domain.po.Knowledge;
 import com.kb.knowledge.domain.po.KnowledgeBase;
@@ -167,10 +168,16 @@ public class KnowServiceImpl implements KnowledgeService {
         Knowledge knowledge = new Knowledge();
         BeanUtil.copyProperties(knowledgeAddDTO,knowledge);
 
-        knowledge.setId(currentId);
+        knowledge.setUserId(currentId);
         knowledge.setCreateTime(LocalDateTime.now());
         knowledge.setUpdateTime(LocalDateTime.now());
         knowledgeMapper.insertKnowledge(knowledge);
+        log.info("kid：{}",knowledge.getId());
+        String usernameByUserId = knowledgeMapper.getUsernameByUserId(knowledge.getUserId());
+        //同时创建知识预览
+        knowledgeMapper.createKnowledgePreview(knowledge.getId(), knowledge.getName(), usernameByUserId,knowledge.getKbaseId());
+
+
     }
 
     @Override
@@ -213,6 +220,27 @@ public class KnowServiceImpl implements KnowledgeService {
         log.info("currentId:{}",currentId);
         KnowledgePreview knowledgePreview = knowledgeMapper.getKnowledgePreview(kId);
         return knowledgePreview;
+    }
+
+    @Override
+    public void updateKnowledgePreview(KnowledgePreviewUpdateDTO knowledgePreviewUpdateDTO) {
+        Long currentId = BaseContext.getCurrentId();
+        if(currentId==null){
+            throw new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
+        }
+        log.info("currentId:{}",currentId);
+        //构造实体
+        //id，kid均已判断相同且不为空
+        KnowledgePreview knowledgePreview = new KnowledgePreview();
+//        knowledgePreview.setId(knowledgePreviewUpdateDTO.getId());
+        //todo 创建知识时同步创建知识预览表
+        BeanUtil.copyProperties(knowledgePreviewUpdateDTO,knowledgePreview);
+        knowledgePreview.setKbaseId(null);
+        knowledgePreview.setName(null);
+        knowledgePreview.setAuthors(null);
+        log.info("更新内容{}",knowledgePreview);
+        knowledgeMapper.updateKnowledgePreview(knowledgePreview);
+
     }
 
 
