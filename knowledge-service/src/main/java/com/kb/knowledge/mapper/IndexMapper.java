@@ -12,5 +12,5 @@ import java.util.List;
 public interface IndexMapper {
 
     @Select("select * from ks")
-    List<KIndexContentVO> getContent();
+    Page<KIndexContentVO> getContent();
 }

@@ -3,6 +3,7 @@ package com.kb.knowledge.controller;
 
 import com.kb.knowledge.domain.vo.KIndexContentVO;
 import com.kb.knowledge.service.IndexService;
+import common.PageResult;
 import common.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,10 +27,10 @@ public class IndexController {
     @GetMapping()
     @ApiOperation("首页知识展示")
     //startindex（从1开始）+num（默认为10）
-    public Result<List<KIndexContentVO>> IndexContent(@RequestParam Integer startIndex,
-                                                @RequestParam(defaultValue = "10") Integer num){
+    public Result<PageResult> IndexContent(@RequestParam Integer startIndex,
+                                           @RequestParam(defaultValue = "10") Integer num){
         log.info("展示首页知识");
-        List<KIndexContentVO> indexContent = indexService.getIndexContent(startIndex, num);
+        common.PageResult indexContent = indexService.getIndexContent(startIndex, num);
         return Result.success(indexContent);
     }
 }

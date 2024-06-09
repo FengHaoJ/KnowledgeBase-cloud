@@ -4,3 +4,6 @@ db:
 
 nc:
   addr: 192.168.184.130:8848
+
+picture:
+  addr: "E:\\images\\"

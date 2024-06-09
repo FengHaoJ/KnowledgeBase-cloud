@@ -1,10 +1,11 @@
 package com.kb.knowledge.service;
 
 import com.kb.knowledge.domain.vo.KIndexContentVO;
+import common.PageResult;
 
 import java.util.List;
 
 public interface IndexService {
 
-    List<KIndexContentVO> getIndexContent(Integer startIndex,Integer num);
+    PageResult getIndexContent(Integer startIndex, Integer num);
 }

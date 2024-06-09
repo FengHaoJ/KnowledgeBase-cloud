@@ -3,6 +3,7 @@ package com.kb.knowledge.mapper;
 
 import com.kb.knowledge.domain.po.Knowledge;
 import com.kb.knowledge.domain.po.KnowledgeBase;
+import com.kb.knowledge.domain.po.KnowledgePreview;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -42,4 +43,7 @@ public interface KnowledgeMapper {
 
     @Update("update kbases set update_time=#{updateTime} where id=#{kbId}")
     void updateKBUpdateTime(Long kbId, LocalDateTime updateTime);
+
+    @Select("select * from k_preview where id = #{kid}")
+    KnowledgePreview getKnowledgePreview(Long kid);
 }

@@ -1,7 +1,9 @@
 package com.kb.knowledge.controller;
 
 import com.kb.knowledge.domain.dto.KnowledgeAddDTO;
+import com.kb.knowledge.domain.dto.KnowledgePreviewUpdateDTO;
 import com.kb.knowledge.domain.dto.KnowledgeUpdateDTO;
+import com.kb.knowledge.domain.po.KnowledgePreview;
 import com.kb.knowledge.domain.vo.KContentVO;
 import com.kb.knowledge.domain.vo.KsAllVO;
 import com.kb.knowledge.service.KnowledgeService;
@@ -91,4 +93,35 @@ public class KnowledgeController {
         knowledgeService.deleteKnowledge(kbId, kId);
         return Result.success("删除知识成功");
     }
+
+
+
+
+    //知识预览界面
+    @GetMapping("/preview/{kbId}/{kId}")
+    @ApiOperation("查看知识预览")
+    public Result<KnowledgePreview> knowledgePreview(@PathVariable Long kbId,
+                                   @PathVariable Long kId){
+
+        KnowledgePreview knowledgePreview = knowledgeService.getKnowledgePreview(kbId, kId);
+        return Result.success(knowledgePreview);
+    }
+
+    //知识预览修改界面
+    @PutMapping ("/preview/{kbId}/{kId}")
+    @ApiOperation("修改知识知识预览")
+    public Result updateKnowledgePreview(
+            @PathVariable Long kbId,
+            @PathVariable Long kId,
+            @RequestBody KnowledgePreviewUpdateDTO knowledgePreviewUpdateDTO
+            ){
+
+
+
+
+        return Result.success("更新成功");
+    }
+
+
+
 }

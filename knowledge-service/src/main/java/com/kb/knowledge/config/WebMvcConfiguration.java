@@ -1,6 +1,7 @@
 package com.kb.knowledge.config;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kb.knowledge.intercepter.JwtTokenUserInterceptor;
 
 import com.kb.knowledge.json.JacksonObjectMapper;
@@ -8,8 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -21,6 +25,7 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -115,4 +120,6 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .allowedHeaders("*")
                 .exposedHeaders("*");
     }
+
+
 }

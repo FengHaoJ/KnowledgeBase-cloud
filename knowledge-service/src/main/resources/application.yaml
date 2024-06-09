@@ -15,8 +15,14 @@ spring:
     username: root
     password: ${db.pw}
     type: com.alibaba.druid.pool.DruidDataSource
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+      enabled: true
   # pagehelper配置
-
+pictureFile:
+  path: ${picture.addr}
 logging:
   level:
     com.kb: info

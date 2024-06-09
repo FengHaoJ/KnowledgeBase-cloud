@@ -5,6 +5,7 @@ import com.kb.knowledge.domain.dto.KnowledgeAddDTO;
 import com.kb.knowledge.domain.dto.KnowledgeUpdateDTO;
 import com.kb.knowledge.domain.po.Knowledge;
 import com.kb.knowledge.domain.po.KnowledgeBase;
+import com.kb.knowledge.domain.po.KnowledgePreview;
 import com.kb.knowledge.domain.vo.KContentVO;
 import com.kb.knowledge.domain.vo.KIdAndNameVO;
 import com.kb.knowledge.domain.vo.KsAllVO;
@@ -201,6 +202,17 @@ public class KnowServiceImpl implements KnowledgeService {
         }
         log.info("currentId:{}",currentId);
         knowledgeMapper.deleteKnowledge(kbId, kId);
+    }
+
+    @Override
+    public KnowledgePreview getKnowledgePreview(Long kbId, Long kId) {
+        Long currentId = BaseContext.getCurrentId();
+        if(currentId==null){
+            throw new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
+        }
+        log.info("currentId:{}",currentId);
+        KnowledgePreview knowledgePreview = knowledgeMapper.getKnowledgePreview(kId);
+        return knowledgePreview;
     }
 
 

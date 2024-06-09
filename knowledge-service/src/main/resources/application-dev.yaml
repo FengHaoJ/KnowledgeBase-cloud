@@ -1,7 +1,10 @@
 db:
   # 在docker同一个网络当中就可以通过别名（默认为同期名）来访问
   host: mysql
-  pw: 123456
+  pw: Bjtu@fhj0603.
 
 nc:
   addr: nacos
+
+picture:
+  addr: "data/images"
