@@ -22,7 +22,7 @@ public class KnowledgeBase implements Serializable {
     @ApiModelProperty("知识库名")
     private String name;
     @ApiModelProperty("创建者id")
-    private Long user_id;
+    private Long userId;
     @ApiModelProperty("知识库创建时间")
     private LocalDateTime createTime;
     @ApiModelProperty("知识库更新时间")

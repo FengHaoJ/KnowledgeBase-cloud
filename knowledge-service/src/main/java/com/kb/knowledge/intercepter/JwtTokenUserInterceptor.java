@@ -3,7 +3,7 @@ package com.kb.knowledge.intercepter;
 
 import com.kb.knowledge.properties.JwtProperties;
 
-import context.BaseContext;
+import com.kb.common.context.BaseContext;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
-import utils.JwtUtil;
+import com.kb.common.utils.JwtUtil;
 
 
 import javax.servlet.http.HttpServletRequest;

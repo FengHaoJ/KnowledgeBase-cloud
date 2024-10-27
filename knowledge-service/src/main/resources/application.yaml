@@ -34,6 +34,11 @@ logging:
   logback:
     rollingpolicy:
       max-history: 365
+elasticsearch:
+  host: 192.168.184.130
+  port: 9200
+  username: elastic
+  password: software-ip
 mybatis:
   mapper-locations: classpath*:/mapper/*.xml
   configuration:

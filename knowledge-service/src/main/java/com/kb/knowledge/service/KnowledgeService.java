@@ -3,6 +3,7 @@ package com.kb.knowledge.service;
 import com.kb.knowledge.domain.dto.KnowledgeAddDTO;
 import com.kb.knowledge.domain.dto.KnowledgePreviewUpdateDTO;
 import com.kb.knowledge.domain.dto.KnowledgeUpdateDTO;
+import com.kb.knowledge.domain.po.Knowledge;
 import com.kb.knowledge.domain.po.KnowledgePreview;
 import com.kb.knowledge.domain.vo.KContentVO;
 import com.kb.knowledge.domain.vo.KsAllVO;
@@ -32,4 +33,8 @@ public interface KnowledgeService {
 
 
     void updateKnowledgePreview(KnowledgePreviewUpdateDTO knowledgePreviewUpdateDTO);
+
+    Knowledge getKById(long kid);
+
+    List<Knowledge> getKs();
 }

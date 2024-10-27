@@ -12,6 +12,8 @@ import java.util.List;
 @Mapper
 public interface KnowledgeMapper {
 
+    @Select("select * from ks")
+    List<Knowledge> getAllKs();
 
     @Select("select * from kbases")
     List<KnowledgeBase> getAllKbs();
@@ -36,6 +38,11 @@ public interface KnowledgeMapper {
 
     @Select("select username from users where id=#{userId}")
     String getUsernameByUserId(Long userId);
+
+    @Select("select * from ks where id=#{kId}")
+    Knowledge getKnowledgeById(Long kId);
+
+
 
     void insertKnowledge(Knowledge knowledge);
 

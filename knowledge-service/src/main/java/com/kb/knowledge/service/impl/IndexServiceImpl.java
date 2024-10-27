@@ -2,19 +2,14 @@ package com.kb.knowledge.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.kb.knowledge.domain.vo.KIndexContentVO;
 import com.kb.knowledge.mapper.IndexMapper;
 import com.kb.knowledge.service.IndexService;
-import common.PageResult;
-import constant.MessageConstant;
-import context.BaseContext;
-import exception.AccountNotFoundException;
+import com.kb.common.result.PageResult;
+import com.kb.common.context.BaseContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @Slf4j

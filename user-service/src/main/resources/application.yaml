@@ -45,8 +45,6 @@ kb:
     # 设置前端传递过来的令牌名称，注意：在全局参数中要改为这个名字！要不然会获取不到token
     user-token-name: token
 
-
-
 knife4j:
   enable: true
   openapi:

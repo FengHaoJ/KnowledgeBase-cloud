@@ -2,19 +2,17 @@ package com.kb.user.service.impl;
 
 
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import com.kb.user.domain.dto.UserLoginDTO;
 import com.kb.user.domain.dto.UserRegisterDTO;
 import com.kb.user.domain.po.User;
 import com.kb.user.domain.vo.UserSettingVO;
 import com.kb.user.mapper.UserMapper;
 import com.kb.user.service.UserService;
-import constant.MessageConstant;
-import context.BaseContext;
-import exception.AccountExistException;
-import exception.AccountNotFoundException;
-import exception.InfoNotComplatedException;
-import exception.UserNotLoginException;
+import com.kb.common.constant.MessageConstant;
+import com.kb.common.context.BaseContext;
+import com.kb.common.exception.AccountExistException;
+import com.kb.common.exception.AccountNotFoundException;
+import com.kb.common.exception.UserNotLoginException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

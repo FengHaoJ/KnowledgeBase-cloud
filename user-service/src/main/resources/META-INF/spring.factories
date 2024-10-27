@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.kb.common.config.MvcConfig,com.kb.common.interceptor.UserInfoInterceptor

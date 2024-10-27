@@ -12,10 +12,9 @@ import com.kb.knowledge.domain.vo.KIdAndNameVO;
 import com.kb.knowledge.domain.vo.KsAllVO;
 import com.kb.knowledge.mapper.KnowledgeMapper;
 import com.kb.knowledge.service.KnowledgeService;
-import constant.MessageConstant;
-import context.BaseContext;
-import exception.AccountNotFoundException;
-import exception.ResourceNotExistException;
+import com.kb.common.constant.MessageConstant;
+import com.kb.common.context.BaseContext;
+import com.kb.common.exception.AccountNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -241,6 +240,16 @@ public class KnowServiceImpl implements KnowledgeService {
         log.info("更新内容{}",knowledgePreview);
         knowledgeMapper.updateKnowledgePreview(knowledgePreview);
 
+    }
+
+    @Override
+    public Knowledge getKById(long kid) {
+        return knowledgeMapper.getKnowledgeById(kid);
+    }
+
+    @Override
+    public List<Knowledge> getKs() {
+        return knowledgeMapper.getAllKs();
     }
 
 

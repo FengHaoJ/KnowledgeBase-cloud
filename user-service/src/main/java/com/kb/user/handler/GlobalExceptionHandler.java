@@ -1,9 +1,9 @@
 package com.kb.user.handler;
 
 
-import common.Result;
-import constant.MessageConstant;
-import exception.BaseException;
+import com.kb.common.result.Result;
+import com.kb.common.constant.MessageConstant;
+import com.kb.common.exception.BaseException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

@@ -1,8 +1,7 @@
 package com.kb.knowledge.controller;
 
 
-import common.Result;
-import constant.MessageConstant;
+import com.kb.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -12,10 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.UUID;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 @RestController
 @RequestMapping("/user/common")

@@ -1,0 +1,59 @@
+server:
+  port: 8080
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: gateway
+  datasource:
+    url: jdbc:mysql://192.168.184.130:3306/kb-cloud?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+  cloud:
+    nacos:
+      server-addr: 192.168.184.130:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: user
+          uri: lb://user-service
+          predicates:
+            - Path=/user/users/**
+kb:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    user-secret-key: ilovebjtu
+    # 设置jwt过期时间
+    user-ttl: 7200000
+    # 设置前端传递过来的令牌名称，注意：在全局参数中要改为这个名字！要不然会获取不到token
+    user-token-name: token
+  auth:
+    excludePaths: # 无需登录校验的路径
+      - /users/login
+      - /user/users/123
+      - /swagger-resources/**
+      - /webjars/**
+      - /swagger-ui.html
+      - /user/users/v2/**
+      - /v2/**
+
+#        .excludePathPatterns("/user/users/login")
+#        .excludePathPatterns("/user/users/register")
+#        .excludePathPatterns("/user/shop/status")
+#        .excludePathPatterns("/user/123/**");
+
+knife4j:
+  gateway:
+    enabled: true
+    # 选择手动
+    strategy: manual
+    routes:
+      - name: 用户服务
+        service-name: user-service
+        url: /user/users/v2/api-docs?group=default

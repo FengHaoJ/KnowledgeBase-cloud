@@ -1,9 +1,6 @@
 package com.kb.knowledge.service;
 
-import com.kb.knowledge.domain.vo.KIndexContentVO;
-import common.PageResult;
-
-import java.util.List;
+import com.kb.common.result.PageResult;
 
 public interface IndexService {
 

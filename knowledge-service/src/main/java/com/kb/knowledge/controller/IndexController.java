@@ -1,18 +1,14 @@
 package com.kb.knowledge.controller;
 
 
-import com.kb.knowledge.domain.vo.KIndexContentVO;
 import com.kb.knowledge.service.IndexService;
-import common.PageResult;
-import common.Result;
+import com.kb.common.result.PageResult;
+import com.kb.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/index")
@@ -30,7 +26,7 @@ public class IndexController {
     public Result<PageResult> IndexContent(@RequestParam Integer startIndex,
                                            @RequestParam(defaultValue = "10") Integer num){
         log.info("展示首页知识");
-        common.PageResult indexContent = indexService.getIndexContent(startIndex, num);
+        com.kb.common.result.PageResult indexContent = indexService.getIndexContent(startIndex, num);
         return Result.success(indexContent);
     }
 }

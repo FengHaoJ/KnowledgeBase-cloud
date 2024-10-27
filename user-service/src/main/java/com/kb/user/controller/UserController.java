@@ -6,15 +6,15 @@ import com.kb.user.domain.po.User;
 import com.kb.user.domain.vo.UserSettingVO;
 import com.kb.user.domain.vo.UserVO;
 import com.kb.user.service.UserService;
-import common.Result;
-import context.BaseContext;
+import com.kb.common.result.Result;
+import com.kb.common.context.BaseContext;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.kb.user.properties.JwtProperties;
-import utils.JwtUtil;
+import com.kb.common.utils.JwtUtil;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.util.HashMap;
@@ -85,7 +85,7 @@ public class UserController {
 
 
 
-    //也可以考虑使用路径提交/users/{id}
+    // 也可以考虑使用路径提交/users/{id}
     @PutMapping("/settings")
     @ApiOperation("用户信息修改")
     public Result<User> login(@RequestBody UserRegisterDTO userRegisterDTO) throws AccountNotFoundException {
@@ -100,6 +100,11 @@ public class UserController {
         User user = userService.editUserInfo(currentId, userRegisterDTO);
         return Result.success(user);
 
+    }
+
+    @GetMapping("/123")
+    public String TT123(){
+        return "hello World";
     }
 
 
